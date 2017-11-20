@@ -19,8 +19,9 @@ public class Objeto {
 		
 	}
 
-	public Objeto(Tabuleiro tabuleiro) {
+	public Objeto(Tabuleiro tabuleiro, String imagem) {
 		this.setTabuleiro(tabuleiro);
+		this.imagem = imagem;
 	}
 
 	public void movimentarPara(int linha, int coluna) {

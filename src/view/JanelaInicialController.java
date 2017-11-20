@@ -21,14 +21,16 @@ public class JanelaInicialController {
 		if ((e.getSource() instanceof Button)) {
 			if (!(((Button) e.getSource()).getText().equalsIgnoreCase("Jogar")) && !(((Button) e.getSource()).getText().equalsIgnoreCase("Terminar"))) {
 				if(view.getJogador1().isJogar()){
-					if(!view.getJogador2().addPersonagem(new Personagem(model.getTabuleiro(),c))){
+					String nome = ((Button)e.getSource()).getText().split(" ")[0];
+					if(!view.getJogador2().addPersonagem(new Personagem(model.getTabuleiro(),c,view.getJogador2(), "C:\\Users\\mathe\\workspace2\\jogoTabuleiro\\"+nome+".jpg" ))){
 						view.msgSemDinheiro(true);
 					}else{
 						view.getJogador2().diminuirDinheiro(c.getValor());
 						view.atualizaDinheiro(view.getJogador2().getDinheiro());
 					}
 				}else{
-					if(!view.getJogador1().addPersonagem(new Personagem(model.getTabuleiro(),c))){
+					String nome2 = ((Button)e.getSource()).getText().split(" ")[0];
+					if(!view.getJogador1().addPersonagem(new Personagem(model.getTabuleiro(),c,view.getJogador1(), "C:\\Users\\mathe\\workspace2\\jogoTabuleiro\\"+nome2+".jpg" ))){
 						view.msgSemDinheiro(true);
 					}else{
 						view.getJogador1().diminuirDinheiro(c.getValor());
@@ -42,7 +44,7 @@ public class JanelaInicialController {
 				view.atualizaDinheiro(view.getJogador2().getDinheiro());
 			}else if (((Button) e.getSource()).getText().equalsIgnoreCase("Jogar")) {
 				view.setVisible(false);
-				model.jogar();
+				model.jogar(view);
 			}
 
 		}

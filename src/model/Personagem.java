@@ -8,12 +8,14 @@ public class Personagem extends Objeto{
 	private Classe classe;
 	private QuantidadeDeCelulas quantidadeDeCelulasAtaque;
 	private QuantidadeDeCelulas quantidadeDeCelulasAndar;
+	private Jogador jogador;
 	
-	public Personagem(Tabuleiro tabuleiro,Classe c) {
-		super(tabuleiro);
+	public Personagem(Tabuleiro tabuleiro,Classe c, Jogador jogador, String imagem) {
+		super(tabuleiro,imagem);
 		this.classe = c;
 		this.ataque = c.getAtaque();
 		this.vida = c.getVida();
+		this.jogador = jogador;
 	}
 	
 	public Personagem() {
