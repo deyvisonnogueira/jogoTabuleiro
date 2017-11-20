@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/deyvi/workspace/JogoTabuleiro/src/swing2swt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mathe/workspace2/jogoTabuleiro/bin/swing2swt.jar"/>
 	<classpathentry kind="lib" path="C:/Users/deyvi/.p2/pool/plugins/com.ibm.icu_56.1.0.v201601250100.jar" sourcepath="C:/Users/willi/.p2/pool/plugins/com.ibm.icu_56.1.0.v201601250100.jar"/>
 	<classpathentry kind="lib" path="C:/Users/deyvi/.p2/pool/plugins/org.eclipse.core.commands_3.8.0.v20160316-1921.jar" sourcepath="C:/Users/deyvi/.p2/pool/plugins/org.eclipse.core.commands_3.8.0.v20160316-1921.jar"/>
 	<classpathentry kind="lib" path="C:/Users/deyvi/.p2/pool/plugins/org.eclipse.core.databinding.beans_1.3.100.v20160509-1025.jar" sourcepath="C:/Users/willi/.p2/pool/plugins/org.eclipse.core.databinding.beans_1.3.100.v20160509-1025.jar"/>

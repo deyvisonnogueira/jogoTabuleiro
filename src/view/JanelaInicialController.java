@@ -19,28 +19,28 @@ public class JanelaInicialController {
 	public void setEvent(SelectionEvent e,Classe c) {
 		view.msgSemDinheiro(false);
 		if ((e.getSource() instanceof Button)) {
-			if (((Button) e.getSource()).getText().contains("Gigante")) {
-				System.out.println(view.getJogador1().getDinheiro());
-				if(!view.getJogador1().addPersonagem(new Personagem(model.getTabuleiro(),c))){
-					view.msgSemDinheiro(true);
-					System.out.println("dawdwad");
+			if (!(((Button) e.getSource()).getText().equalsIgnoreCase("Jogar")) && !(((Button) e.getSource()).getText().equalsIgnoreCase("Terminar"))) {
+				if(view.getJogador1().isJogar()){
+					if(!view.getJogador2().addPersonagem(new Personagem(model.getTabuleiro(),c))){
+						view.msgSemDinheiro(true);
+					}else{
+						view.getJogador2().diminuirDinheiro(c.getValor());
+						view.atualizaDinheiro(view.getJogador2().getDinheiro());
+					}
 				}else{
-					
-					view.getJogador1().diminuirDinheiro(c.getValor());
-					view.atualizaDinheiro();
-					System.out.println(view.getJogador1().getDinheiro());
+					if(!view.getJogador1().addPersonagem(new Personagem(model.getTabuleiro(),c))){
+						view.msgSemDinheiro(true);
+					}else{
+						view.getJogador1().diminuirDinheiro(c.getValor());
+						view.atualizaDinheiro(view.getJogador1().getDinheiro());
+					}
 				}
-				
-				
-			}
-			if (((Button) e.getSource()).getText().contains("Cavaleiro")) {
-				view.getJogador1().diminuirDinheiro(c.getValor());
-				view.getJogador1().addPersonagem(new Personagem(model.getTabuleiro(),c));
-				System.out.println(view.getJogador1().getDinheiro());
-				
-			}
-			
-			if (((Button) e.getSource()).getText().contains("Jogar")) {
+			}			
+			if (((Button) e.getSource()).getText().equalsIgnoreCase("Terminar")) {
+				view.getJogador1().setJogar(true);
+				view.getJogar().setText("Jogar");
+				view.atualizaDinheiro(view.getJogador2().getDinheiro());
+			}else if (((Button) e.getSource()).getText().equalsIgnoreCase("Jogar")) {
 				view.setVisible(false);
 				model.jogar();
 			}

@@ -27,9 +27,16 @@ public class JanelaInicial {
 	private Jogador jogador2;
 	private Label msgSemDinheiro;
 	private Label dinheiroJ1;
-	
-	
-	
+	private Button jogar;
+
+	public Button getJogar() {
+		return jogar;
+	}
+
+	public void setJogar(Button jogar) {
+		this.jogar = jogar;
+	}
+
 	public Jogador getJogador1() {
 		return jogador1;
 	}
@@ -51,7 +58,7 @@ public class JanelaInicial {
 		this.controller = new JanelaInicialController(this, configuracao);
 		this.controller.model = configuracao;
 		this.jogador1 = new Jogador("Jogador 1", 100);
-		this.jogador2 = new Jogador("Jogador 2", 200);
+		this.jogador2 = new Jogador("Jogador 2", 100);
 		open();
 	}
 	
@@ -88,15 +95,14 @@ public class JanelaInicial {
 		titulo.setVisible(false);
 		
 		msgSemDinheiro = new Label(composite_1, SWT.NONE);
-		titulo.setText("Você não tem dinheiro sufuciente para comprar esse personagem");
-		titulo.setBounds(250, 550, 550, 50);
-
+		msgSemDinheiro.setText("VocÃª nÃ£o tem dinheiro sufuciente para comprar esse personagem");
+		msgSemDinheiro.setBounds(250, 550, 550, 50);
+		msgSemDinheiro.setVisible(false);
 		
 		dinheiroJ1 = new Label(composite_1, SWT.NONE);
-		titulo.setText("Dinheiro: "+jogador1.getDinheiro());
-		titulo.setBounds(100, 50, 550, 50);
-		titulo.setVisible(true);
-		
+		dinheiroJ1.setText("Dinheiro: "+jogador1.getDinheiro());
+		dinheiroJ1.setBounds(100, 50, 550, 50);
+		dinheiroJ1.setVisible(true);
 		
 		ArrayList<Button> personagens = new ArrayList<>();
 		personagens.add(new Button(composite_1, SWT.NONE));
@@ -135,7 +141,16 @@ public class JanelaInicial {
 			classe++;
 		}
 		
-		
+		jogar = new Button(composite_1, SWT.NONE);
+		jogar.setBounds(900, 600, 150, 100);
+		jogar.setText("Terminar");
+		jogar.setVisible(true);
+		jogar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				controller.setEvent(e, null);
+				}
+		});
 	}
 	
 	public void setVisible(boolean visible) {
@@ -147,8 +162,8 @@ public class JanelaInicial {
 		
 	}
 	
-	public void atualizaDinheiro(){
-		dinheiroJ1.setText("Dinheiro: "+jogador1.getDinheiro());
+	public void atualizaDinheiro(float dinheiro){
+		dinheiroJ1.setText("Dinheiro: "+dinheiro);
 	}
 	
 	

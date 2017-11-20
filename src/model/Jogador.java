@@ -14,11 +14,13 @@ public class Jogador {
 	private List<Personagem> personagens;
 	private String nome;
 	private float dinheiro;
+	private boolean jogar;
 
 	public Jogador(String nome, float dinheiro) {
 		super();
 		this.nome = nome;
 		this.dinheiro = dinheiro;
+		this.setJogar(false);
 		this.setPersonagens(new ArrayList<Personagem>());
 	}
 
@@ -102,6 +104,14 @@ public class Jogador {
 
 	public void diminuirDinheiro(float valor) {
 		this.dinheiro -= valor;
+	}
+
+	public boolean isJogar() {
+		return jogar;
+	}
+
+	public void setJogar(boolean jogar) {
+		this.jogar = jogar;
 	}
 
 }
